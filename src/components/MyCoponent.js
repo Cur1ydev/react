@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import AddUserInfo from './AddUserInfo';
 import DisplayInfo from "./DisplayInfo";
+import button from "bootstrap/js/src/button";
 
 const MyCoponent = () => {
     const [state, setState] = useState({
@@ -25,6 +26,7 @@ const MyCoponent = () => {
     return (<div className='app-container'>
         <AddUserInfo handleAddNewUser={handleAddNewUser}/>
         <DisplayInfo listUsers={state.listUsers} handleDeleteUser={handleDeleteUser}/>
+        <button>Test</button>
     </div>);
 }
 export default MyCoponent;
