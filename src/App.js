@@ -1,14 +1,21 @@
-import logo from './logo.svg';
 import './App.scss';
-import {useDispatch, useSelector} from 'react-redux';
-import {increaseCounter, decreaseCounter} from './redux/action/counterAction';
-import MyCoponent from "./components/MyCoponent";
-import React from "react";
+import Header from "./components/Header/Header";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link, Outlet} from "react-router-dom";
 
-class App extends React.Component {
-    render() {
-        return (<MyCoponent/>);
-    }
+const App = () => {
+    return (<div className="app-container">
+            <div className={`header-container`}>
+                <Header/>
+            </div>
+            <div className={`main-container`}>
+                <div className={`sidenav-container`}>
+                    <Outlet/>
+                </div>
+            </div>
+        </div>
+
+    )
 }
 
 export default App;
