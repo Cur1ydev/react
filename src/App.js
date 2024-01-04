@@ -2,6 +2,7 @@ import './App.scss';
 import Header from "./components/Header/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link, Outlet} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 
 const App = () => {
     return (<div className="app-container">
@@ -14,6 +15,7 @@ const App = () => {
                 </div>
             </div>
         </div>
+
 
     )
 }
