@@ -8,6 +8,12 @@ import Login from "./components/Auth/Login";
 import React from "react";
 import {ToastContainer} from "react-toastify";
 import Register from "./components/Auth/Register";
+import {DetailQuiz} from "./components/User/DetailQuiz";
+const NotFound = () => {
+    return (<div>
+        Not Found
+    </div>)
+}
 
 const Layout = () => {
     return (<>
@@ -19,8 +25,10 @@ const Layout = () => {
             <Route path="admin" element={<Admin/>}>
                 <Route path="user/list" element={<ManagerUser/>}></Route>
             </Route>
+            <Route path="quiz/:id" element={<DetailQuiz/>}/>
             <Route path="login" element={<Login/>}/>
             <Route path="register" element={<Register/>}/>
+            <Route path="*" element={<NotFound/>} />
         </Routes>
         <ToastContainer
             position="top-right"

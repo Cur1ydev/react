@@ -11,6 +11,7 @@
       background: black;
       border-radius: 5px;
       padding: 5px 10px;
+
       &:hover {
         color: red
       }
@@ -32,11 +33,27 @@
   }
 
   .content-form {
+    .loaderIcon {
+      font-size: 14px;
+      margin-bottom: 3px;
+      color: #00d4ff;
+      animation: spin 1s infinite linear;
+    }
+
+    @keyframes spin {
+      from {
+        transform: scale(1) rotate(0deg);
+      }
+      to {
+        transform: scale(1) rotate(360deg);
+      }
+    }
 
     input {
       margin-bottom: 15px;
       margin-top: 3px;
     }
+
 
     button {
       width: 100%;
@@ -46,7 +63,14 @@
       border-radius: 5px;
       color: white;
       background: black;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+
+      }
     }
+
     .back {
       cursor: pointer;
     }
