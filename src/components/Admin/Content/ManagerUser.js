@@ -31,10 +31,6 @@ const ManagerUser = () => {
         getList(currentPage);
     }, []);
     const getList = async (page) => {
-        // const response = await listUser();
-        // if (response.EC === 0) {
-        //     setList(response.DT);
-        // }
         const response = await getUserPaginate(page, limit_user);
         if (response.EC === 0) {
             setList(response.DT.users);

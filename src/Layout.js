@@ -9,6 +9,7 @@ import React from "react";
 import {ToastContainer} from "react-toastify";
 import Register from "./components/Auth/Register";
 import {DetailQuiz} from "./components/User/DetailQuiz";
+import {ManagerQuiz} from "./components/Admin/Quiz/ManagerQuiz";
 const NotFound = () => {
     return (<div>
         Not Found
@@ -23,7 +24,8 @@ const Layout = () => {
                 <Route path="user" element={<User/>}/>
             </Route>
             <Route path="admin" element={<Admin/>}>
-                <Route path="user/list" element={<ManagerUser/>}></Route>
+                <Route path="user/list" element={<ManagerUser/>}/>
+                <Route path="quiz/list" element={<ManagerQuiz/>}/>
             </Route>
             <Route path="quiz/:id" element={<DetailQuiz/>}/>
             <Route path="login" element={<Login/>}/>

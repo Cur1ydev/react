@@ -51,14 +51,16 @@ export const DetailQuiz = (props) => {
         let question = quizClone.find((item) => {
             if (item.id === questionId) {
                 result = item.answers.map((value) => {
-                    if (value.id === answerId) value.isSelected = !value.isSelected;
+                    if (value.id === answerId) {
+                        value.isSelected = !value.isSelected;
+                    }
                 })
                 return result;
             }
         })
-        let index = quizClone.findIndex((item) => +item.id === +questionId)
-        if (index > -1) {
-            quizClone[index] = question;
+        let indexQuestion = quizClone.findIndex((item) => +item.id === +questionId)
+        if (indexQuestion > -1) {
+            quizClone[indexQuestion] = question;
             setQuiz(quizClone)
         }
     }
@@ -81,19 +83,18 @@ export const DetailQuiz = (props) => {
             })
 
         }
-        let checkAnsEmpty = payload.answers.find((item) => item.userAnswerId.length === 0)
-        if (checkAnsEmpty) {
-            toast.error(`Bạn có câu hỏi ${index + 1} chưa chọn đáp án. Vui lòng chọn 1 đáp án để nộp bài`);
+        let indexError = payload.answers.findIndex((item) => item.userAnswerId.length === 0)
+        if (indexError !== -1) {
+            toast.error(`Bạn có câu hỏi ${indexError + 1} chưa chọn đáp án. Vui lòng kiểm tra lại`);
         } else {
             const response = await submitAnswer(payload);
-            console.log("check response : ", response);
             if (response.EC === 0) {
                 setshowModalResult(true);
                 setQuestionResult({
                     countCorrect: response.DT.countCorrect, countTotal: response.DT.countTotal
                 })
             }
-            // toast.success("Đã chọn tất cả đáp án")
+            toast.success("Đã chọn tất cả đáp án")
         }
         console.log("check payload:", payload);
     }
